@@ -24,10 +24,7 @@
         }
       ]
     },
-    {
-      "type": "info-bar",
-      "enabled": true
-    },
+ 
     {
       "type": "collection-shelf",
       "shuffle": true,

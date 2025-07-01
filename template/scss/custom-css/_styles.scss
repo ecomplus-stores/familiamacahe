@@ -1,1 +1,145 @@
 // Add your custom CSS here.
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Rubik:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Rubik', Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Serif Display', serif;
+}
+.aside-left,
+.aside-right{
+  width: 360px;
+  height: 100%;
+}
+.centered-content{
+  flex: 1;
+  max-width: calc(100% - 720px);  
+  .container{
+    width: 100%;
+
+  }
+}
+#main > .container-fluid{min-height: 100vh;}
+.banner-slider{height: auto;}
+.banner-slider__slides, .banner-slider__slides>li{min-height: 0;}
+
+.banner-slider picture{border-radius: 8px;overflow:hidden}
+
+.desktop-logo{
+  justify-content: center;
+  align-items: center;
+  a{
+    display: block;
+    text-align: center;
+    img{
+      max-width:100%;
+      width: 210px;
+    }
+  }
+}
+:root{
+  --gray:#ccc;
+  --green:#7EC35C;
+  --black:#131313;
+  --brad:8px;
+  --h1: 39px;
+  --h2: 33px;
+  --focus1: 27px;
+  --focus2: 23px;
+  --focus3: 19px;
+  --text: 16px;
+  --small: 13.3px;
+  --smallest: 11px;
+  --font1: 'DM Serif Display', serif;
+  --font2: 'Rubik', Arial, sans-serif;
+}
+
+.aside-left{
+  a{text-decoration: none;}
+  h2{
+    font-size: var(--focus2);
+    color: var(--black);
+  }
+  .category-section{
+    .category-main-title{
+      font-size: var(--focus3);
+      color: var(--black);
+    }
+    .subcategories-list{
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin-bottom: 2rem;
+        a{
+          font-size: var(--text);
+          color:var(--green)
+        }
+      }
+  }
+}
+
+.animated-logo-spin {
+  animation: logo-spin 15s linear infinite;
+}
+
+@keyframes logo-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.category-scroll{
+  height: calc(100dvh - 260px);
+  overflow-y: scroll;
+  margin-top: 1rem;
+}
+@media(min-width:990px){
+  .animated-logo-spin{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    translate: -10% 30%;
+    img{
+      height:250px
+    }
+  }
+  .aside-left{
+    position: sticky;
+    top: 1rem;
+  }
+  .aside-right{
+    position: sticky;
+    top: 1rem;
+    border: 1px solid var(--gray);
+    border-radius: var(--brad);
+    padding: 1.5rem;    
+    display: flex;
+    flex-direction: column;
+    height: calc(100dvh - 2rem);
+    .backdrop{display:none!important;pointer-events:none;opacity:0!important}
+    #cart-quickview{height: 100%;}
+    .minicart__aside.card{
+      display: block!important;
+      height: 100%;
+      position: relative;
+      min-height: 100%;
+      padding: 0;
+      border: 0;
+      .card-body{
+        height: 100%;
+        justify-content: flex-end;
+        display: flex    ;
+        flex-direction: column;
+      }
+      .card-header{
+        display: none;
+      }
+      .minicart__empty .btn{display: none;}
+    }
+  }
+  .rl-box{
+    padding: 0 1rem;
+  }
+}

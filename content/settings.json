@@ -4,14 +4,14 @@
   "domain": "familiamacahe.netlify.app",
   "short_name": "familiamacahe",
   "description": "familiamacahe",
-  "primary_color": "#222831",
-  "secondary_color": "#393e46",
+  "primary_color": "#131313",
+  "secondary_color": "#131313",
   "bg_color": "#ffffff",
   "theme": {
     "bootswatch": "_",
     "custom": "_"
   },
-  "logo": "/img/uploads/logo.png",
+  "logo": "/img/uploads/rodrilagos_horizontal.png",
   "mini_logo": "",
   "icon": "/img/icon.png",
   "large_icon": "/img/large-icon.png",

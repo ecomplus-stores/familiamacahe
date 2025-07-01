@@ -18,8 +18,25 @@
   <%- await include('@/layout/menu') %>
 
   <main role="main" id="main">
-    <%- await include('@/layout/header') %>
-    <%- await include('@/layout/sections') %>
+    <div class="container-fluid p-3">
+      <div class="row d-flex rl-box">
+        <aside class="aside-left">
+          <%- await include('@/layout/apx_menu-categories') %>
+        </aside>
+        <div class="centered-content col">
+        <%- await include('@/layout/sections') %>
+        </div>
+        <aside class="aside-right">          
+          <%- await include('@/layout/apx_sidecart') %>
+        </aside>
+        
+      </div>
+    </div>
+    <div class="d-block d-md-none">
+        <%- await include('@/layout/header') %>
+      </div>
+    
+    
     <%- await include('@/layout/footer') %>
   </main>
 

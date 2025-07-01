@@ -1,0 +1,67 @@
+<% 
+  const header = _.cms('header') || {}
+  // list featured categories
+  let categories = []
+  let isCategoriesNavFull
+  if (header.categories_list) {
+    if (header.categories_list.featured.length) {
+      // selected categories/collections/brands
+      categories = header.categories_list.featured.map(pathAndName => {
+        const [path, name] = pathAndName.split('?')
+        return { slug: path.slice(1), name }
+      })
+    }
+    if (header.categories_list.random) {
+      // add up to `random` main categories
+      const mainCategories = _.categories.filter(({ parent }) => !parent || !parent.slug)
+      for (let i = 0; i < header.categories_list.random && i < mainCategories.length; i++) {
+        if (!categories.find(({ slug }) => mainCategories[i].slug === slug)) {
+          categories.push(mainCategories[i])
+        }
+      }
+    }
+    isCategoriesNavFull = header.categories_list.full_width
+  }
+  const hasMegamenu = header.desktop_megamenu
+  const isAlphabeticalOrderSubmenu = header.alphabetical_order_submenu
+  const fullWidthSubmenu = header.full_width_submenu
+  const isCentralizedLogo = header.centralized_logo
+  const hasAllDepartments = header.menu_all_departments
+%>
+
+<section class="p-2">
+  <h2>Compre por Categoria</h2>
+  <% if (categories && categories.length) { %>
+    <div class="category-scroll">
+      <% categories.forEach(({ slug, name, _id}) => { %>
+          <div class="category-section">
+            <h3 class="category-main-title">
+              <a href="/<%= slug %>" class="category-main-link">
+                <%= name %>
+              </a>
+            </h3>
+            <% const subcategories = _.categories.filter(({ parent }) => parent && parent.slug === slug) %>
+            <% if (subcategories.length) { %>
+              <%
+                if (isAlphabeticalOrderSubmenu) {
+                  subcategories.sort((a, b)=> {
+                    return b.name > a.name ? -1 : 1
+                  })
+                }
+              %>
+              <div class="subcategories-list">
+                <% subcategories.forEach(subcategory => { %>
+                  <a href="/<%= subcategory.slug %>" class="subcategory-link">
+                    <%= subcategory.name %>
+                  </a>
+                <% }) %>
+              </div>
+            <% } %>
+          </div>
+        <% }) %>
+      </div>
+  <% } %>
+</section>
+<span class="animated-logo-spin">
+  <img src="/img/uploads/rodrilagos_rounded.png"/>
+</span>
