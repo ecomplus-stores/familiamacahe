@@ -18,13 +18,14 @@
   <%- await include('@/layout/menu') %>
 
   <main role="main" id="main">
-    <div class="container-fluid p-3">
+    <div class="container-fluid pt-3 px-3">
       <div class="row d-flex rl-box">
         <aside class="aside-left">
           <%- await include('@/layout/apx_menu-categories') %>
         </aside>
         <div class="centered-content col">
         <%- await include('@/layout/sections') %>
+        <%- await include('@/layout/footer') %>
         </div>
         <aside class="aside-right">          
           <%- await include('@/layout/apx_sidecart') %>
@@ -37,7 +38,7 @@
       </div>
     
     
-    <%- await include('@/layout/footer') %>
+    
   </main>
 
   <%- await include('@/json') %>
