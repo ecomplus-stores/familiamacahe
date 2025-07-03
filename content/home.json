@@ -30,15 +30,11 @@
       "shuffle": true,
       "collection_id": null,
       "sort": "offers",
-      "title": "",
+      "title": "Refrigerante Macahé",
       "headless": false,
-      "limit": 12,
+      "limit": 24,
       "page": 1
-    },
-    {
-      "type": "page-title",
-      "title": "Loja demo da E-Com Plus",
-      "description": "Loja de demonstração e testes da plataforma E-Com Plus e Storefront. Todos os produtos, preços e informações são meramente ilustrativos."
     }
+    
   ]
 }

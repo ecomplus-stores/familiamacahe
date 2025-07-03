@@ -94,6 +94,35 @@ h1, h2, h3, h4, h5, h6 {
   height: calc(100dvh - 260px);
   overflow-y: scroll;
   margin-top: 1rem;
+  position: relative;
+}
+// .category-scroll:before{
+//   content:"";
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   height: 50px;
+//   pointer-events: none;
+//   width: 100%;
+//   background: #ffffff;
+//   background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 70%);
+//   background: -moz-linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 70%);
+//   background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 70%);
+//   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#FFFFFF", endColorstr="#FFFFFF", GradientType=0);
+// }
+.category-scroll:after{
+  content:"";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  pointer-events: none;
+  width: 100%;
+  background: #ffffff;
+  background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 70%);
+  background: -moz-linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 70%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 70%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#FFFFFF", endColorstr="#FFFFFF", GradientType=0);
 }
 @media(min-width:990px){
   .animated-logo-spin{
@@ -120,8 +149,19 @@ h1, h2, h3, h4, h5, h6 {
     height: calc(100dvh - 2rem);
     .backdrop{display:none!important;pointer-events:none;opacity:0!important}
     #cart-quickview{height: 100%;}
+    .minicart__list-count{
+      font-size: var(--text);
+      border-bottom: 1px solid #f2f2f2;
+      padding: .5rem 0;
+      margin-bottom: 1rem;
+      position: sticky;
+      top:0;
+      background: #fff;
+              width: 100%;
+        z-index: 2;
+    }
     .minicart__aside.card{
-      display: block!important;
+      display: flex!important;
       height: 100%;
       position: relative;
       min-height: 100%;
@@ -129,14 +169,67 @@ h1, h2, h3, h4, h5, h6 {
       border: 0;
       .card-body{
         height: 100%;
-        justify-content: flex-end;
+        justify-content: flex-start;
         display: flex    ;
         flex-direction: column;
+        padding:0;
+
+        .cart-item__name{
+          text-transform: initial;
+          font-size: var(--small);
+        }
+        .cart-item__thumb{
+          width: 60px;
+        }
+        .cart-item__mini-price{
+          *{color:var(--black)}
+          .cart-item__price-un{font-size:var(--smallest);}
+          .cart-item__prices{
+            > span{
+              font-size:var(--small);
+              font-weight: bold;
+            }
+          }
+        }
+        .apx_minicart-quantity{
+          display: flex;
+          gap:5px;
+          margin: 0;
+          input[type="number"]::-webkit-inner-spin-button,
+          input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+          button{
+            background: var(--green);
+            border: 0;
+            font-size: 0;
+            height: 26px;
+            position: relative;
+            width: 26px;
+            padding: 0;
+            min-width: 26px;
+            border-radius: 6px;
+
+            svg{height: 100%;}
+            .ico-svg{display: flex;align-items:center;}
+          }
+          input{
+            height:26px;
+            width: 46px;
+            background:#F2F2F2;
+            padding: 0;
+            text-align: center;
+            font-size: var(--small);
+          }
+        }
       }
       .card-header{
         display: none;
       }
+      .minicart__btn-cart,
       .minicart__empty .btn{display: none;}
+      
     }
   }
   .rl-box{
@@ -144,4 +237,144 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.product-card{
+  box-shadow: 0px 0px 0px;
+  border: 1px solid #CCCCCC;
+  section{
+    flex-direction: row;
+    gap:1rem;
+    align-items: center;
+  }
+  .product-card__offer-stamp{
+    left: 4px;
+    right: auto;
+    top: 4px;
+    line-height: initial;
+    font-weight: 500;
+    font-size: 11px;
+    width: fit-content;
+    padding: .25rem .5rem;
+    min-width: 0;
+    border-radius: 4px!important;
+    i{display: none;}
+  }
+  .product-card__favorite{display: none;}
+  .product-card__pictures{height: 140px;width:90px;
+    picture,
+    img{height: 140px;}
+    img{padding: .25rem 0;}
+  }
+  .product-card__buy{
+    opacity: 1;
+    position: absolute;
+    bottom: .75rem;
+    right: .75rem;
+    button{
+      position: relative;
+      font-size: 0;
+      height: 30px;
+      width:30px;
+      background: var(--green);
+      border: 0;
+      i{display: none;}
+      
+    }
+    button:after{rotate: 90deg;}
+    button:before,
+    button:after{
+      content:"";
+      position: absolute;
+      height: 1.5px;
+      width: 60%;
+      background:#fff;
+      top:50%;
+      left:50%;
+      translate: -50% -50%;
+    }
+    
+  }
+  .product-card__name{
+    font-family:var(--font2);
+    font-size:var(--text);
+    font-weight: 400;
+  }
+  .prices__compare{
+    font-size: var(--small);
+    line-height: initial;
+    s{color:#666}
+  }
+  .product-card__prices{
+    display: flex;
+    gap:.75rem;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .prices__value{font-size: var(--text);}
+}
+
 body iframe:last-child{display: none;}
+
+.products-custom-shelf{
+  .products-carousel__title{
+    width: 100%;
+    padding:0 0 2rem 0;
+    text-align: left;
+    span{
+      color: var(--green);
+      font-family: var(--font2);
+      font-size: var(--focus1);
+      text-align: left;
+      font-weight: bold;
+      padding: 0;
+    }
+  }
+  .products-carousel__title:before{display: none;}
+}
+
+.minicart__aside {
+  .card-footer{
+    padding: 1rem 0 0 0;
+    background: transparent;
+    border-top-color: #f2f2f2;
+  }
+  .minicart__summary{
+    span{
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--black);
+      font-size: var(--small);
+    }
+    .prices__value{font-size: var(--focus3);}
+  }
+  .minicart__btn-checkout{
+    i{display:none}
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--green);
+    font-size: var(--focus3);
+    font-weight: bold;
+    padding: .75rem 1rem;
+    border: 0;
+  }
+  .minicart__btn-checkout:after{
+    content:'';
+    background-image: url('../../public/assets/ico_credit-card.svg');
+    height:24px;
+    width: 24px;
+  }
+}
+
+.justify-content-between{
+  justify-content: space-between;
+}
+
+.align-items-end{
+  align-items: flex-end;
+}
+
+.gap-15{
+  gap:1.5rem
+}
