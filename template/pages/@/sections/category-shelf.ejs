@@ -1,0 +1,115 @@
+<% 
+  const header = _.cms('header') || {}
+  const isAlphabeticalOrderSubmenu = header.alphabetical_order_submenu
+  
+  // Pegar todas as categorias principais (sem parent)
+  let categories = _.categories.filter(({ parent }) => !parent || !parent.slug)
+  
+  // Se tiver configuração específica no header, usar ela
+  if (header.categories_list) {
+    if (header.categories_list.featured && header.categories_list.featured.length) {
+      // categorias selecionadas
+      const featuredCategories = header.categories_list.featured.map(pathAndName => {
+        const [path, name] = pathAndName.split('?')
+        return { slug: path.slice(1), name }
+      })
+      categories = [...featuredCategories, ...categories]
+    }
+    if (header.categories_list.random) {
+      // limitar número de categorias se configurado
+      categories = categories.slice(0, header.categories_list.random)
+    }
+  }
+  
+  // Ordenar alfabeticamente se configurado
+  if (isAlphabeticalOrderSubmenu) {
+    categories.sort((a, b) => a.name.localeCompare(b.name))
+  }
+%>
+
+<div class="category-shelf my-lg-3 d-block d-md-none">
+  <% if (categories && categories.length) { %>    
+    <nav class="category-simple-nav">        
+      <% categories.forEach(({ slug, name, _id }) => { %>
+        <a href="/<%= slug %>" class="category-link" id="cat-<%= _id %>">
+          <%= name %>
+        </a>
+        
+        <% // Adicionar subcategorias se existirem %>
+        <% const subcategories = _.categories.filter(({ parent }) => parent && parent.slug === slug) %>
+        <% if (subcategories.length) { %>
+          <% 
+            if (isAlphabeticalOrderSubmenu) {
+              subcategories.sort((a, b) => a.name.localeCompare(b.name))
+            }
+          %>
+          <% subcategories.forEach(subcategory => { %>
+            <a href="/<%= subcategory.slug %>" class="subcategory-link" id="subcat-<%= subcategory._id %>">
+              <%= subcategory.name %>
+            </a>
+          <% }) %>
+        <% } %>
+      <% }) %>
+      <% categories.forEach(({ slug, name, _id }) => { %>
+        <a href="/<%= slug %>" class="category-link" id="cat-<%= _id %>">
+          <%= name %>
+        </a>
+        
+        <% // Adicionar subcategorias se existirem %>
+        <% const subcategories = _.categories.filter(({ parent }) => parent && parent.slug === slug) %>
+        <% if (subcategories.length) { %>
+          <% 
+            if (isAlphabeticalOrderSubmenu) {
+              subcategories.sort((a, b) => a.name.localeCompare(b.name))
+            }
+          %>
+          <% subcategories.forEach(subcategory => { %>
+            <a href="/<%= subcategory.slug %>" class="subcategory-link" id="subcat-<%= subcategory._id %>">
+              <%= subcategory.name %>
+            </a>
+          <% }) %>
+        <% } %>
+      <% }) %>
+      <% categories.forEach(({ slug, name, _id }) => { %>
+        <a href="/<%= slug %>" class="category-link" id="cat-<%= _id %>">
+          <%= name %>
+        </a>
+        
+        <% // Adicionar subcategorias se existirem %>
+        <% const subcategories = _.categories.filter(({ parent }) => parent && parent.slug === slug) %>
+        <% if (subcategories.length) { %>
+          <% 
+            if (isAlphabeticalOrderSubmenu) {
+              subcategories.sort((a, b) => a.name.localeCompare(b.name))
+            }
+          %>
+          <% subcategories.forEach(subcategory => { %>
+            <a href="/<%= subcategory.slug %>" class="subcategory-link" id="subcat-<%= subcategory._id %>">
+              <%= subcategory.name %>
+            </a>
+          <% }) %>
+        <% } %>
+      <% }) %>
+      <% categories.forEach(({ slug, name, _id }) => { %>
+        <a href="/<%= slug %>" class="category-link" id="cat-<%= _id %>">
+          <%= name %>
+        </a>
+        
+        <% // Adicionar subcategorias se existirem %>
+        <% const subcategories = _.categories.filter(({ parent }) => parent && parent.slug === slug) %>
+        <% if (subcategories.length) { %>
+          <% 
+            if (isAlphabeticalOrderSubmenu) {
+              subcategories.sort((a, b) => a.name.localeCompare(b.name))
+            }
+          %>
+          <% subcategories.forEach(subcategory => { %>
+            <a href="/<%= subcategory.slug %>" class="subcategory-link" id="subcat-<%= subcategory._id %>">
+              <%= subcategory.name %>
+            </a>
+          <% }) %>
+        <% } %>
+      <% }) %>
+    </nav>
+  <% } %>
+</div>

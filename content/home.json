@@ -24,7 +24,15 @@
         }
       ]
     },
- 
+    {
+      "type": "search-shelf"
+    },
+    {
+      "type": "category-shelf"
+    },
+    {
+      "type": "page-title"
+    },
     {
       "type": "collection-shelf",
       "shuffle": true,

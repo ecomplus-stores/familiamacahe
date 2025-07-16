@@ -18,24 +18,56 @@
   <%- await include('@/layout/menu') %>
 
   <main role="main" id="main">
+     <%- await include('@/layout/header') %>
+    
     <div class="container-fluid pt-3 px-3">
       <div class="row d-flex rl-box">
         <aside class="aside-left">
+          <div class="aside-header d-flex d-md-none">
+            <span>Menu</span>
+            <button class="close-aside" aside-toggle="aside-left">              
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 6L6 18M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="search-shelf my-lg-3 d-flex d-md-none">
+            <form action="">
+              <div class="input-group">
+                <label for="">Procurar por:</label>
+                <input type="text" class="form-control" placeholder="cerveja, guaraná, suco..." aria-label="Procurar por">
+                <div class="input-group-append">
+                  <button class="" type="submit">        
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 21L16.65 16.65M11 6C13.7614 6 16 8.23858 16 11M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
           <%- await include('@/layout/apx_menu-categories') %>
         </aside>
-        <div class="centered-content col">
+        <div class="centered-content col px-md-4">
         <%- await include('@/layout/sections') %>
         <!-- <%- await include('@/layout/footer') %> -->
         </div>
-        <aside class="aside-right">          
+        <aside class="aside-right">     
+          <div class="aside-header">
+            <span>Carrinho</span>
+            <button class="close-aside" aside-toggle="aside-right">              
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 6L6 18M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>     
           <%- await include('@/layout/apx_sidecart') %>
         </aside>
         
       </div>
     </div>
-    <div class="d-block d-md-none">
-        <%- await include('@/layout/header') %>
-      </div>
+    
     
     
     
