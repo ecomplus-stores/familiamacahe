@@ -34,15 +34,9 @@
       "type": "page-title"
     },
     {
-      "type": "collection-shelf",
-      "shuffle": true,
-      "collection_id": null,
-      "sort": "offers",
-      "title": "Refrigerante Macahé",
-      "headless": false,
-      "limit": 24,
-      "page": 1
+      "type": "products-shelf"
     }
+    
     
   ]
 }

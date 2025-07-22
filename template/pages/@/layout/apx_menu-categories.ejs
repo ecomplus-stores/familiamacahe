@@ -36,7 +36,7 @@
       <% categories.forEach(({ slug, name, _id}) => { %>
           <div class="category-section">
             <h3 class="category-main-title">
-              <a href="/<%= slug %>" class="category-main-link">
+              <a href="/<%= slug %>" data-scroll="<%= name.toLowerCase().replace(/\s/g, '-') %>" class="category-main-link">
                 <%= name %>
               </a>
             </h3>
@@ -51,7 +51,7 @@
               %>
               <div class="subcategories-list">
                 <% subcategories.forEach(subcategory => { %>
-                  <a href="/<%= subcategory.slug %>" class="subcategory-link">
+                  <a href="/<%= subcategory.slug %>" data-scroll="<%= subcategory.name.toLowerCase().replace(/\s/g, '-') %>" class="subcategory-link">
                     <%= subcategory.name %>
                   </a>
                 <% }) %>

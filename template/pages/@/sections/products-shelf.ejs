@@ -1,0 +1,55 @@
+<% 
+  // Pegar todas as categorias principais (sem parent)
+  let categories = _.categories.filter(({ parent }) => !parent || !parent.slug)
+  
+  //categories.sort((a, b) => a.name.localeCompare(b.name))
+  
+%>
+
+<% if (categories && categories.length) { %>
+  <% for (const { slug, name, _id } of categories) { %>    
+      <% const subcategories = _.categories.filter(({ parent }) => parent && parent.slug === slug) %>
+        <% if (subcategories.length) { %>
+          <%           
+            subcategories.sort((a, b)=> {
+              return b.name > a.name ? -1 : 1
+            })            
+          %>
+         
+        <% } else { %>
+          <%
+          
+          let title = name
+          let link = `/${slug}`
+          search = new _.EcomSearch().setCategoryIds([_id])
+          //search.setSortOrder(opt.sort)
+          search.setPageSize(999)
+          try {
+            await search.fetch()
+            items = search.getItems()
+          } catch (err) {
+            console.error(err)
+          }
+
+          //console.log(items)
+          if (items && items.length) {
+            items.sort((a, b) => {
+              return a.name.localeCompare(b.name)
+            })
+
+            %>
+
+            <div class="collection-shelf my-lg-5">
+              <%- await include('@/sections/inc/products-custom-shelf', {
+                _, opt: { items, title, link }
+              }) %>
+            </div>
+            <%
+          }
+
+          %>
+
+          
+        <% }%>
+  <% } %>
+<% } %>

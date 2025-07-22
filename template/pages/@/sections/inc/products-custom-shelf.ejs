@@ -27,19 +27,12 @@
     data-title="<%= title %>"
   >
     <% if (!opt.headless) { %>
-      <h4 class="products-carousel__title">
+      <h4 class="" id="<%= opt.title.toLowerCase().replace(/\s/g, '-') %>">
         <% if (opt.title || opt.collection) { %>
-          <% if (link) { %>
-            <a href="<%= link %>">
-              <%= title %>
-            </a>
-          <% } else { %>
+          
             <span><%= title %></span>
-          <% } %>
-        <% } else { %>
-          <a href="/search">
-            <%= title %>
-          </a>
+          
+        
         <% } %>
       </h4>
     <% } %>
