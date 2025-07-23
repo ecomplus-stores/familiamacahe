@@ -11,7 +11,8 @@ import {
   name as getName,
   inStock as checkInStock,
   onPromotion as checkOnPromotion,
-  price as getPrice
+  price as getPrice,
+  formatMoney
 } from '@ecomplus/utils'
 
 import Vue from 'vue'
@@ -141,6 +142,7 @@ export default {
   },
 
   methods: {
+    formatMoney,
     setBody (data) {
       this.body = Object.assign({}, data)
       delete this.body.body_html

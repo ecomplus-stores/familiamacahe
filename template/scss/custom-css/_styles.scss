@@ -746,3 +746,8 @@ header.header{background: #fff;}
 
 
 .search-engine__retail .product-card--small{}
+
+.price-unit{
+  font-size: calc(var(--font-size) * .8);
+  color: #666;
+}

@@ -105,7 +105,9 @@
               :discount-option="discountOption"
             />
           </slot>
-
+          <div class="price-unit" v-if="body.specs.find( el => el.grid == 'unidades')">
+            {{ formatMoney((body.price / parseInt(body.specs.find( el => el.grid == 'unidades').text)))}}/unidade
+          </div>
           <div
             @click="buy"
             class="product-card__buy fade"
