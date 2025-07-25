@@ -1,13 +1,14 @@
 <div
   class="product-card"
   :class="{
-    'product-card--inactive': body._id && !isActive,
+    'product-card--inactive': body._id && body.quantity && body.quantity <= 0,
     'product-card--small': isSmall
   }"
   @mouseover="isHovered = true"
   :data-product-id="body._id"
   :data-sku="body.sku"
 >
+  <span class="indisponivel" v-if="body.quantity && body.quantity <= 0">Indisponível</span>
   <transition :enter-active-class="transitionClass">
     <section v-if="!isLoading" class="d-flex">
       <slot
@@ -113,6 +114,7 @@
           <div
             @click="buy"
             class="product-card__buy fade"
+            v-if="body.quantity && body.quantity > 0"
           >
             <slot name="buy">
               <div
