@@ -783,4 +783,17 @@ header.header{background: #fff;}
     letter-spacing: 1px;
     padding: .25rem .5rem;
     border-radius: 4px;
+    z-index:2
+}
+
+.cart-item__thumb{
+  img{
+    max-height: 70px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@media(max-width: 990px) {
+  body{padding-bottom: 3rem;}
 }

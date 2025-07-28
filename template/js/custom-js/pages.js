@@ -20,12 +20,14 @@ document.addEventListener('click', function(e) {
     if (targetEl) {
       // Calcular posição com offset de -30px
       const elementPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - 30;
+      const offsetPosition = elementPosition - (window.innerWidth < 990 ? 70 : 30);
       
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       });
+
+      $(`.aside-left, .aside-right`).removeClass('visible');
     } else {
       if (scrollBtn.tagName === 'A' && scrollBtn.href) {
         window.location.href = scrollBtn.href;
