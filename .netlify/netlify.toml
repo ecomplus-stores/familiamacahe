@@ -7,6 +7,11 @@
   to = "/.netlify/functions/ssr?slug=:splat"
   status = 200
 
+[[redirects]]
+  from = "/refrigerante-macahe"
+  to = "/"
+  status = 301
+
 [[headers]]
   for = "/storefront.*"
   [headers.values]
