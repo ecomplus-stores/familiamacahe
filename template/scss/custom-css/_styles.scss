@@ -798,3 +798,93 @@ header.header{background: #fff;}
 @media(max-width: 990px) {
   body{padding-bottom: 3rem;}
 }
+
+
+.minicart__minimum-order {
+    margin-bottom: 1rem;
+    padding: 0 0 .75rem 0;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.progress-container {
+  width: 100%;
+}
+
+.progress-label {
+    align-items: center;
+    color: var(--red);
+    display: flex
+;
+    font-size: var(--smallest);
+    justify-content: center;
+    margin-bottom: .5rem;
+    text-align: center;
+}
+
+
+.progress-bar-container {
+  width: 100%;
+  height: 10px;
+  background-color: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green) 0%, #7EC35C 50%, #7EC35C 100%);
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+  position: relative;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 20px 20px;
+  animation: progress-bar-stripes 1s linear infinite;
+}
+
+@keyframes progress-bar-stripes {
+  0% { background-position: 20px 0; }
+  100% { background-position: 0 0; }
+}
+
+.progress-text {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.minicart__btn-checkout.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Animação quando atinge o mínimo */
+@keyframes celebrate {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.minicart__btn-checkout:not(.disabled) {
+  animation: celebrate 0.6s ease-in-out;
+}
+        

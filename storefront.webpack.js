@@ -14,7 +14,7 @@ module.exports = () => ({
       './js/InstantSearch.js': path.resolve(__dirname, 'template/alpix/InstantSearch.js'), 
       
 
-
+      './html/EcCheckout.html': path.resolve(__dirname, 'template/js/custom-js/html/EcCheckout.html'),
 
       //  './html/TheCart.html': path.resolve(__dirname, 'template/js/custom-js/html/TheCart.html'),   
       // './html/EcCheckout.html': path.resolve(__dirname, 'template/js/custom-js/html/EcCheckout.html'),   
