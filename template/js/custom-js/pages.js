@@ -37,3 +37,19 @@ document.addEventListener('click', function(e) {
     }
   }
 });
+
+const EcomPassport = require('@ecomplus/passport-client');
+  
+
+document.addEventListener("DOMContentLoaded", function() {
+  updateClientInfo();
+});
+
+async function updateClientInfo(){
+  const client = await EcomPassport.ecomPassport.getCustomer(); 
+  if(client.display_name){
+    $('[data-client_name]').text(client.display_name);
+    $('[data-client_message]').text(`Minha Conta`);
+  }
+  console.log('client name',client)
+}

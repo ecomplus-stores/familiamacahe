@@ -31,7 +31,7 @@
   <% if (categories && categories.length) { %>    
     <nav class="category-simple-nav">        
       <% categories.forEach(({ slug, name, _id }) => { %>
-        <a href="/<%= slug %>" class="category-link" id="cat-<%= _id %>">
+        <a href="/<%= slug %>" data-scroll="<%= name.toLowerCase().replace(/\s/g, '-') %>"class="category-link" id="cat-<%= _id %>">
           <%= name %>
         </a>
         
