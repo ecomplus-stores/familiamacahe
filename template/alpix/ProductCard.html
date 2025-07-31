@@ -106,9 +106,8 @@
               :discount-option="discountOption"
             />
           </slot>
-          
-          <div class="price-unit" v-if="body.specs.find( el => el.grid == 'unidades')">
-              R$ {{ (Math.floor((body.price / parseInt(body.specs.find( el => el.grid == 'unidades').text)) * 100) / 100).toFixed(2).replace('.', ',') }}/unidade
+          <div class="price-unit" v-if="body.price && body.specifications && body.specifications.unidades">
+              R$ {{ (Math.floor((body.price / parseInt(body.specifications.unidades[0].value)) * 100) / 100).toFixed(2).replace('.', ',') }}/unidade
           </div>
           
           <div

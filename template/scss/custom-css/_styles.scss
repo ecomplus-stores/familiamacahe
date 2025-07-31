@@ -989,3 +989,16 @@ header.header{background: #fff;}
     }
   }
 }
+
+.text-center{
+  text-align: center;
+}
+
+#ageModal{
+  .modal-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    *{width: 100%;}
+  }
+}
