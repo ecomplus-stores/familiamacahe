@@ -124,9 +124,8 @@
       // Botão SIM
       $('#btn-age-yes').click(function() {
         sessionStorage.setItem('age_verified', 'true');
-        $('#ageModal').hide(300, function() {
-          $('body').removeClass('modal-open');
-        });
+        $('#ageModal').hide();
+        $('body').removeClass('modal-open');
       });
       
       // Botão NÃO
