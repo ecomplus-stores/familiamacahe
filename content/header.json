@@ -1,32 +1,40 @@
 {
+  "categories_list": {
+    "featured": [
+      "/promocoes-da-semana?Promoções da Semana",
+      "/refrigerante-macahe?Refri Macahé",
+      "/rainha-do-brasil?Refri Rainha do Brasil",
+      "/mabros?Cerveja Mabros",
+      "/acquissima?Águas",
+      "/jacutinga?Jacutinga",
+      "/outras-bebidas-alcoolicas?Cervejas",
+      "/refrigerante?Refrigerantes",
+      "/energetico?Energético",
+      "/refresco--suco?Refresco / Suco",
+      "/outros-refrigerantes?Isotonico",
+      "/cachaca--bebida-quente?Cachaça / Aguardente",
+      "/vinhos?Vinhos",
+      "/oleo?Outros Alcoólicos",
+      "/ice?ICE",
+      "/cafe?Alimentos"
+    ],
+    "random": 20,
+    "full_width": false
+  },
+  "menu_all_departments": false,
+  "centralized_logo": true,
   "marketing_stripe": {
     "text": "Aproveite nossos descontos de até 50%!",
     "link": "/promotion"
   },
-  "contacts_stripe": {
-    "pages": [
-      {
-        "title": "Sobre nós",
-        "link": "/pages/sobre-nos"
-      },
-      {
-        "title": "Esta loja é um PWA",
-        "link": "/posts/esta-loja-e-um-pwa"
-      }
-    ],
-    "phone_wpp": true,
-    "socials": true
-  },
-  "categories_list": {
-    "featured": [],
-    "random": 99,
-    "full_width": false
-  },
-  "centralized_logo": true,
-  "desktop_megamenu": false,
-  "search_input": true,
   "alphabetical_order_submenu": false,
+  "name_all_departments": "",
+  "search_input": true,
+  "desktop_megamenu": false,
   "full_width_submenu": false,
-  "menu_all_departments": false,
-  "name_all_departments": ""
+  "contacts_stripe": {
+    "pages": [],
+    "phone_wpp": false,
+    "socials": false
+  }
 }
