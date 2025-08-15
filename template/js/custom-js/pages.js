@@ -20,7 +20,7 @@ document.addEventListener('click', function(e) {
     if (targetEl) {
       // Calcular posição com offset de -30px
       const elementPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - (window.innerWidth < 990 ? 70 : 30);
+      const offsetPosition = elementPosition - (window.innerWidth < 990 ? 150 : 130);
       
       window.scrollTo({
         top: offsetPosition,
