@@ -1008,3 +1008,36 @@ header.header{background: #fff;}
     *{width: 100%;}
   }
 }
+
+#storefront-app{
+  .cart-item{
+    .apx_minicart-quantity{
+      gap: 5px;
+    margin: 0;
+     input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      button{
+        background: var(--green);
+    border: 0;
+    border-radius: 6px;
+    font-size: 0;
+    height: 26px;
+    min-width: 26px;
+    padding: 0;
+    position: relative;
+    width: 26px;
+      }
+      input{
+            background: #f2f2f2;
+    font-size: var(--small);
+    height: 26px;
+    padding: 0;
+    text-align: center;
+    width: 46px;
+      }
+    }
+  }
+}

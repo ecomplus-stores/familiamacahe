@@ -44,7 +44,7 @@
                 "label_singular": "Cliente",
                 "summary": "{{fields.title}}",
                 "field": {
-                  "label": "DOC do Cliente",
+                  
                   "name": "title",
                   "hint": "Digite o CPF/CNPJ do cliente que será permitido utilizar essa modalidade de pagamento",
                   "widget": "string"

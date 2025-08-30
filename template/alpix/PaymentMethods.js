@@ -286,21 +286,22 @@ export default {
           }
         })
       }
-      console.log(`paymentGateways`,paymentGateways,this.customer)
+      //console.log(`paymentGateways`,paymentGateways,this.customer)
       const limiter = window.PAYMENT_MODULE_LIMITER
-      if (limiter && limiter.payment_option_id) {
-        paymentGateways = paymentGateways.map(gateway => {
-          if (gateway.label === limiter.payment_option_id) {
-            const customerDoc = this.customer && this.customer.doc_number
-            gateway.disabled = !(
-              customerDoc &&
-              Array.isArray(limiter.list) &&
-              limiter.list.includes(String(customerDoc))
-            )
-          }
-          return gateway
+      if (limiter && limiter.list && limiter.list.length) {
+        paymentGateways = paymentGateways.filter(gateway => {
+            // procura se há restrição para esse gateway
+            const restriction = limiter.list.find(l => l.payment_option_id === gateway.label)
+
+            if (!restriction) {
+                // não há restrição -> mantém
+                return true
+            }
+
+            // existe restrição -> só mantém se o doc_number está na lista
+            return restriction.list.includes(this.customer.doc_number)
         })
-      }
+    }
       this.$emit('update:payment-gateways', paymentGateways)
     },
 
