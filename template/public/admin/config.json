@@ -41,6 +41,8 @@
                 "label": "Clientes Habilitados",
                 "name": "list",
                 "widget": "list",
+                "label_singular": "Cliente",
+                "summary": "{{fields.title}}",
                 "field": {
                   "label": "DOC do Cliente",
                   "name": "title",
