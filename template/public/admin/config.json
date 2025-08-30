@@ -41,14 +41,12 @@
                 "label": "Clientes Habilitados",
                 "name": "list",
                 "widget": "list",
-                "label_singular": "Cliente",
-                "summary": "{{field.title}}",
-                "field": {
+                "fields": [{
                   "label": "DOC do Cliente",
                   "name": "title",
                   "hint": "Digite o CPF/CNPJ do cliente que será permitido utilizar essa modalidade de pagamento",
                   "widget": "string"
-                }
+                }]
               }]
             }
             
