@@ -1,6 +1,7 @@
 <%
 const contacts = _.cms('contacts') || {}
 const footer = _.cms('footer') || {}
+const paymentConfig = _.cms('apx_payment_config') || {}
 const logo = _.settings.logo
   ? { url: (_.assetsPrefix || '') + _.settings.logo, alt: _.settings.name }
   : _.store.logo
@@ -11,6 +12,10 @@ const logo = _.settings.logo
 
 <head>
   <%- await include('@/head') %>
+
+  <script>
+    window.PAYMENT_MODULE_LIMITER = JSON.parse(<%- JSON.stringify(JSON.stringify(paymentConfig)) %>)
+  </script>
 </head>
 
 <body class="app">

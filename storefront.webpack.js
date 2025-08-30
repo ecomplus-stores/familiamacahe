@@ -17,6 +17,8 @@ module.exports = () => ({
       './html/EcCheckout.html': path.resolve(__dirname, 'template/js/custom-js/html/EcCheckout.html'),
       './html/ShippingCalculator.html': path.resolve(__dirname, 'template/js/custom-js/html/ShippingCalculator.html'),
 
+      './js/PaymentMethods.js': path.resolve(__dirname, 'template/alpix/PaymentMethods.js'),
+
       //  './html/TheCart.html': path.resolve(__dirname, 'template/js/custom-js/html/TheCart.html'),   
       // './html/EcCheckout.html': path.resolve(__dirname, 'template/js/custom-js/html/EcCheckout.html'),   
       // './js/EcCheckout.js': path.resolve(__dirname, 'template/js/custom-js/html/EcCheckout.js'),   

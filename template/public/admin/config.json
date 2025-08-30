@@ -18,32 +18,38 @@
           "label": "Restrição Módulo de Pagamento",
           "file": "content/apx_payment_config.json",
           "fields": [
-            {
-              "label": "Identificação",
-              "hint": "Apenas para identificação interna",
-              "name": "title",
-              "widget": "string",
-              "required":false
-            },
-            {
-              "label": "Id da Opção de Pagamento",
-              "hint": "A partir desse momento a opção informada ficará oculta para todos os clientes exceto os habilitados.",
-              "name": "payment_option_id",
-              "widget": "string",
-              "required":false
-            },
-            
-            {
-              "label": "Clientes Habilitados",
+             {
+              "label": "Módulos de Pagamento Restritos",
               "name": "list",
               "widget": "list",
-              "field": {
-                "label": "DOC do Cliente",
+              "fields": [{
+                "label": "Identificação",
+                "hint": "Apenas para identificação interna",
                 "name": "title",
-                "hint": "Digite o CPF/CNPJ do cliente que será permitido utilizar essa modalidade de pagamento",
-                "widget": "string"
-              }
+                "widget": "string",
+                "required":false
+              },
+              {
+                "label": "Id da Opção de Pagamento",
+                "hint": "A partir desse momento a opção informada ficará oculta para todos os clientes exceto os habilitados.",
+                "name": "payment_option_id",
+                "widget": "string",
+                "required":false
+              },
+              
+              {
+                "label": "Clientes Habilitados",
+                "name": "list",
+                "widget": "list",
+                "field": {
+                  "label": "DOC do Cliente",
+                  "name": "title",
+                  "hint": "Digite o CPF/CNPJ do cliente que será permitido utilizar essa modalidade de pagamento",
+                  "widget": "string"
+                }
+              }]
             }
+            
           ]
         }        
       ]
