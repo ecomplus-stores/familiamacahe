@@ -652,9 +652,10 @@ body iframe:last-child{display: none;}
   }
 
   .minicart__aside.card{
-    min-height: calc(100dvh - 66px);
+    max-height: calc(100dvh - 66px);
     padding: 1.5rem;
   }
+  .minicart__btn-back{display: none;}
 }
 
 #instant-search{
