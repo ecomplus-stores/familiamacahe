@@ -86,17 +86,17 @@
           v-if="cart.subtotal || cart.items.length"
         >
           <!-- Barra de progresso para pedido mínimo -->
-          <div class="minicart__minimum-order" v-if="cart.subtotal < 200">
+          <div class="minicart__minimum-order" v-if="cart.subtotal < 300">
             <div class="progress-container">
               <div class="progress-label">
                 <span class="remaining-amount">
-                  Faltam apenas <b>R$ {{ (200 - cart.subtotal).toFixed(2).replace('.', ',') }}</b> para finalizar seu pedido
+                  Faltam apenas <b>R$ {{ (300 - cart.subtotal).toFixed(2).replace('.', ',') }}</b> para finalizar seu pedido
                 </span>
               </div>
               <div class="progress-bar-container">
                 <div 
                   class="progress-bar" 
-                  :style="{ width: Math.min((cart.subtotal / 200) * 100, 100) + '%' }"
+                  :style="{ width: Math.min((cart.subtotal / 300) * 100, 100) + '%' }"
                 ></div>
               </div>              
             </div>
@@ -114,7 +114,7 @@
 
           <!-- Botão de checkout - só aparece se atingir o mínimo -->
           <a-link
-            v-if="cart.subtotal >= 200"
+            v-if="cart.subtotal >= 300"
             class="minicart__btn-checkout btn btn-block btn-primary"
             role="button"
             :href="checkoutUrl"
@@ -131,7 +131,7 @@
             disabled
           >
             <i class="i-info mr-1"></i>
-            Pedido mínimo R$ 200,00
+            Pedido mínimo R$ 300,00
           </button>
 
           <a-link

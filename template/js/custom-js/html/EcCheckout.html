@@ -1,6 +1,6 @@
 <div class="checkout">
-  <div v-if="cart.subtotal < 200" class="d-flex align-items-center" style="gap:1rem;margin:2rem 0; flex-direction:column; justify-content:center; align-items: center;">
-    <p>Faltam apenas <b>R$ {{ (200 - cart.subtotal).toFixed(2).replace('.', ',') }}</b> para finalizar seu pedido</p>
+  <div v-if="cart.subtotal < 300" class="d-flex align-items-center" style="gap:1rem;margin:2rem 0; flex-direction:column; justify-content:center; align-items: center;">
+    <p>Faltam apenas <b>R$ {{ (300 - cart.subtotal).toFixed(2).replace('.', ',') }}</b> para finalizar seu pedido</p>
     <a href="/" class="btn btn-primary">Continuar comprando</a>
   </div>
   <div v-else>
